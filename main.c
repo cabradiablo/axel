@@ -7,12 +7,11 @@ int main(int ac, char **av)
     {
         t_map *map = NULL;
         
-        strlen("estoy hasta la polla");
         map = (t_map *)malloc(sizeof(t_map));
         map->dim = (t_dim *)malloc(sizeof(t_dim));
         map->dim->width = NULL;
         parser(&map, av[1]);
-        print_3int(map->data);
+        print_map(map->data);
     }
     return 0;
 }

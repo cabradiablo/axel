@@ -34,8 +34,8 @@ typedef struct s_map
 
 //parser.c
 void    parser(t_map **map, char *filename);
-void    realloc_data(int ***data, int *datadim_width, int row,  char *line);
-void    procces_line(int ***data, int row,  char *line);
+void    realloc_data(int ****data, int *datadim_width, int row,  char *line);
+void    procces_line(int ****data, int row,  char *line);
 char    *get_color(char *line, int *color);
 char    *get_height(char *line, int *nbr);
 void    set_hole(char  *line, int *data_row);
@@ -47,8 +47,7 @@ void    ft_error(char *msg);
 //utils.c
 char    *strjoin(char *head, char *tail);
 void    open_map(char *av, int *fd);
-void    print_3int(int ***data);
-
-
+void	print_map(int ***map);
+char    *get_IntColor(char *line, int *color);
 
 #endif
