@@ -6,7 +6,7 @@
 #    By: alepinto <alepinto@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/12 02:55:49 by alepinto          #+#    #+#              #
-#    Updated: 2023/10/30 18:13:34 by alepinto         ###   ########.fr        #
+#    Updated: 2023/10/31 15:52:29 by alepinto         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ SRC =	get_next_line.c 		\
 OBJ = $(SRC:%.c=%.o)
 
 CC = @gcc
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 NAME =	libft.a	\
 
 all: $(NAME)

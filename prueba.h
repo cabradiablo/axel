@@ -24,7 +24,6 @@ typedef struct s_dim
 
 typedef struct s_map
 {
-    t_dim   *dim;
 	int 	***data;
 	int		interval_x[2];
 	int		interval_y[2];
@@ -33,21 +32,22 @@ typedef struct s_map
 
 
 //parser.c
-void    parser(t_map **map, char *filename);
-void    realloc_data(int ****data, int *datadim_width, int row,  char *line);
+void    parser(t_map **map, t_dim **dim, char *filename);
+void    realloc_data(int ****data, int width, int row,  char *line);
+void    realloc_dim(int **width, int row, int breadth);
 void    procces_line(int ****data, int row,  char *line);
 char    *get_color(char *line, int *color);
 char    *get_height(char *line, int *nbr);
-void    set_hole(char  *line, int *data_row);
-int     ft_validinput(char  c, char next);
+void    set_hole(char  *line, int **data_row);
+int     ft_validinput(char *line);
 
 //error.c
 void    ft_error(char *msg);
 
 //utils.c
 char    *strjoin(char *head, char *tail);
-void    open_map(char *av, int *fd);
-void	print_map(int ***map);
+int     open_map(char *av, int *fd);
+void	print_map(int ***map, t_dim *dim);
 char    *get_IntColor(char *line, int *color);
 
 #endif

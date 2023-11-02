@@ -5,13 +5,13 @@ int main(int ac, char **av)
 {
     if (ac == 2)
     {
-        t_map *map = NULL;
-        
+        t_map   *map = NULL;
+        t_dim   *dim = NULL;
         map = (t_map *)malloc(sizeof(t_map));
-        map->dim = (t_dim *)malloc(sizeof(t_dim));
-        map->dim->width = NULL;
-        parser(&map, av[1]);
-        print_map(map->data);
+        dim = (t_dim *)malloc(sizeof(t_dim));
+        dim->width = NULL;
+        parser(&map, &dim, av[1]);
+        print_map(map->data, dim);
     }
     return 0;
 }

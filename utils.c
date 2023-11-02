@@ -1,35 +1,30 @@
 #include "prueba.h"
 #include "libft/libft.h"
 
-void	print_map(int ***map)
+void	print_map(int ***map, t_dim *dim)
 {
+    (void)map;
+    //int i = 0;
+    printf("%ld\n", (long)dim->height);
+    /*
 	int	row;
 	int	column;
-	row = 0;
-	while (row < 2)
+	
+    row = -1;
+    printf("Numero de filas total :%d\n", dim->height);
+    while (++row <= dim->height)
 	{
-		column = 0;
-		while (column < 2)
+        printf("fila nº: %d   de ancho : %d\n", row, dim->width[row]);
+		column = -1;
+		while (++column <= dim->width[row])
 		{
-			printf("%d", map[row][column][0]);
-			column++;
+			printf("%d,", map[row][column][0]);
+            printf("%d ", map[row][column][1]);
 		}
 		printf("\n");
-		row++;
 	}
+    */
 }
-/*char    *get_color(char *line, int *color)
-{
-    if (ft_strncmp(line, ",0x", 3) == 0)
-    {
-        *line += 3;
-        line = get_IntColor(line, color);
-    }
-    else
-        *color = -1;
-    return (line);
-}*/
-
 char *get_IntColor(char *line, int *color)
 {
     int result = 0;
@@ -80,15 +75,17 @@ char    *strjoin(char *head, char *tail)
     return (result);
 }
 
-void    open_map(char *av, int *fd)
+int open_map(char *av, int *fd)
 {
     char    *file;
 
-    file = strjoin("maps/", av);
+    file = strjoin("./maps/", av);
     if (!file)
-        return ;
+        return (-1);
     *fd = open(file, O_RDONLY);
-    if (*fd == -1)
-        return ;
     free(file);
+    if (*fd == -1)
+        return (-1);
+    else
+        return (0);
 }
